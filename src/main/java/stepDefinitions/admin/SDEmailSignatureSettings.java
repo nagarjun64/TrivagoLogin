@@ -14,9 +14,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.settings.UIManageSignatures;
 import helpers.Hooks;
 import helpers.SimplifyUtils;
-import pageobjects.admin.UIManageSignatures;
 
 public class SDEmailSignatureSettings {
 

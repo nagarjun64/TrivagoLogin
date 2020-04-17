@@ -8,7 +8,7 @@ import helpers.Hooks;
 import helpers.Log;
 import helpers.SimplifyUtils;
 import pageobjects.UIMenu;
-import pageobjects.admin.UIFAQ;
+import pageobjects.settings.UIFAQ;
 
 /**
  * @author maushumisen

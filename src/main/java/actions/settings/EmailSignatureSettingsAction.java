@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import helpers.Hooks;
 import helpers.SimplifyUtils;
 import pageobjects.UIMenu;
-import pageobjects.admin.UIManageSignatures;
+import pageobjects.settings.UIManageSignatures;
 
 public class EmailSignatureSettingsAction {
 

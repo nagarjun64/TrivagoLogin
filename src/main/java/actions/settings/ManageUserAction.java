@@ -15,7 +15,7 @@ import helpers.SimplifyUtils;
 import helpers.SocialLogin;
 import pageobjects.UIMenu;
 import pageobjects.Listen.UIListenProfileCreation;
-import pageobjects.admin.UIManageUsers;
+import pageobjects.settings.UIManageUsers;
 
 /**
  * @author nagarjunareddy

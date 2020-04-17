@@ -12,10 +12,6 @@ import helpers.Log;
 import helpers.SimplifyUtils;
 import pageobjects.UIMenu;
 import pageobjects.Analyze.UIPostAnalysis;
-import pageobjects.admin.UIAdminChannels;
-import pageobjects.admin.UIFAQ;
-import pageobjects.admin.UIManageSignatures;
-import pageobjects.admin.UIManageUsers;
 import pageobjects.insights.UITwitterInsights;
 import pageobjects.publish.UIMediaLibrary;
 import pageobjects.reports.UIActivityReport;
@@ -25,6 +21,10 @@ import pageobjects.reports.UIRepliesReport;
 import pageobjects.reports.UISentimentReport;
 import pageobjects.reports.UISocialActivityReport;
 import pageobjects.reports.UITaggingReport;
+import pageobjects.settings.UIAdminChannels;
+import pageobjects.settings.UIFAQ;
+import pageobjects.settings.UIManageSignatures;
+import pageobjects.settings.UIManageUsers;
 
 public class OpenModule {
 

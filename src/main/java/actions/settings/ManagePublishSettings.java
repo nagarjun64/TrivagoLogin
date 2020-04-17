@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import helpers.Hooks;
 import helpers.Log;
 import helpers.SimplifyUtils;
-import pageobjects.admin.UIPublishsettings;
+import pageobjects.settings.UIPublishsettings;
 
 //Author: Lokesh
 

@@ -1,4 +1,4 @@
-package pageobjects.admin;
+package pageobjects.settings;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;

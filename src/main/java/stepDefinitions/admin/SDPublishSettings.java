@@ -10,10 +10,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.settings.UIPublishsettings;
 import helpers.Hooks;
 import helpers.Log;
 import helpers.SimplifyUtils;
-import pageobjects.admin.UIPublishsettings;
 
 public class SDPublishSettings {
 
