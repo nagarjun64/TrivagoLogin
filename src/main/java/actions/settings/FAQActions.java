@@ -1,4 +1,4 @@
-package actions.admin;
+package actions.settings;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import actions.LogInAction;
 import actions.OpenModule;
-import actions.admin.ManageUserAction;
+import actions.settings.ManageUserAction;
 import helpers.Hooks;
 import helpers.SimplifyUtils;
 import io.cucumber.java.en.Given;

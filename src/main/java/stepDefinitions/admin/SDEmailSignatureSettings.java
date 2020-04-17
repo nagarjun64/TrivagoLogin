@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 import actions.LogInAction;
 import actions.OpenModule;
-import actions.admin.EmailSignatureSettingsAction;
+import actions.settings.EmailSignatureSettingsAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

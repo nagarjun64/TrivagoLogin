@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import actions.LogInAction;
 import actions.OpenModule;
+import actions.settings.FAQActions;
 import helpers.Hooks;
 import helpers.SimplifyUtils;
 import pageobjects.admin.UIFAQ;
@@ -15,7 +16,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import actions.admin.FAQActions;
 
 
 public class SDAddFAQ {

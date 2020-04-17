@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import actions.LogInAction;
 import actions.OpenModule;
-import actions.admin.ManagePublishSettings;
+import actions.settings.ManagePublishSettings;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
