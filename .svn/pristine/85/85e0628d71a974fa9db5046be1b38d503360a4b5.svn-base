@@ -1,0 +1,81 @@
+
+
+#User Config
+localLoginOwnerEmail=nagarjun.reddy@in-rev.com
+localLoginOwnerPassword=Simplify360&
+localLoginAdminEmail=nagarjun.reddy@in-rev.com
+localLoginAdminPassword=Simplify360@
+
+suiteLoginOwnerEmail=nagarjun.reddy@in-rev.com
+suiteLoginOwnerPassword=Simplify360$
+suiteLoginAdminEmail=maushumi.sen@simplify360.com
+suiteLoginAdminPassword=Simplify360*(
+
+####Environement Config
+baseURL=https://suite.simplify360.com/
+#baseURL=https://mail.google.com/mail/u/0/
+browser=chrome
+
+#Headless browser needs to be changed only if the browser is set to "headless"
+headLessBrowser = chrome
+
+dbdriver=com.mysql.jdbc.Driver
+dbuserName=dbuser
+dbPassword=dbpassword
+
+##Required Profiles i.e these shouldn't be deleted
+requiredProfiles = Demo Telecom, Colors
+
+##Active profile in which settings, messages , dashboards and other modules are tested.
+activeProfile = Demo Telecom, Colors
+
+
+##Twitter Channel Credentials
+twitterAccount=jheller360
+twitterAccountPassword=Simplify360
+
+secondTwitterAccount=galloway
+secondTwitterAccountPassword=Simplify360
+
+##Facebook page Channel Credentials
+fbAccount=nagarjun64@hotmail.com
+fbAccountPassword=Simplify360#
+fbPage=GetStarted
+
+
+##YouTube Channel Credentials
+ytUserName=gallowayin360@gmail.com
+ytUserPassword=Simplify360%
+
+#Tumblr Credentials
+tumblrLogin=alexxm360@gmail.com
+tumblrPassword=Simplify360
+
+#Linkedin Company Credentials
+lkdCompUserName=magsafeplus
+lkdCompUserPassword=Vodafone@123
+
+#Instagram Business 
+instagramBusinessLogin=socialoal@gmail.com
+instagramBusinessPwd=Simplify360*
+
+#SocialChannel Identifiers
+twitterIdentifier=twitter
+fbPageIdentifier=facebookpage
+
+#File Upload Path MAC
+
+imageToUpload=/Users/nagarjunareddy/Documents/projectworkspace/eclipse/s360_v8/src/test/resources/twt_Pic.jpg
+twtVideoPath=/Users/nagarjunareddy/Documents/projectworkspace/eclipse/s360_v8/src/test/resources/twt_Video.mp4
+FileUploadPath=/home/fileupload/
+
+supportEmail=support@simplify360.com
+supportEmailPassword=password
+dbconnecturl=jdbc:mysql://10.0.0.240:3306/
+dbName=mongrel
+
+socioProductionOBIEEURL=https://sociomis.vodafone.co.in:9804/analytics
+socioTestOBIEEURL=http://10.77.17.90:9704/analytics/saw.dll?bieehome&amp;startPage=1;
+
+#Error Messages
+invalidLoginErrorText=Your e-mail and password combination is wrong.

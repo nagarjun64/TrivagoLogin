@@ -1,0 +1,218 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>simplify360Cucumber</groupId>
+	<artifactId>s360UIAutomation</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+	<name>Cucumber-JVM template</name>
+
+	<properties>
+		<cucumber.version>4.7.1</cucumber.version>
+		<selenium.version>3.141.59</selenium.version>
+		<junit.version>4.12</junit.version>
+		<cucumberreporting.version>3.11.0</cucumberreporting.version>
+		<extentreporting.version>3.0.6</extentreporting.version>
+		<htmlunit-driver.version>2.29.0</htmlunit-driver.version>
+		<log4j.version>1.2.17</log4j.version>
+		<java.version>8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>${cucumber.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>${htmlunit-driver.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>net.masterthought</groupId> <artifactId>cucumber-reporting</artifactId> 
+			<version>${cucumberreporting.version}</version> </dependency> <dependency> 
+			<groupId>com.vimalselvam</groupId> <artifactId>cucumber-extentsreport</artifactId> 
+			<version>3.0.1</version> </dependency> <dependency> <groupId>com.aventstack</groupId> 
+			<artifactId>extentreports</artifactId> <version>${extentreporting.version}</version> 
+			</dependency> -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+		<!-- <dependency> <groupId>xml-apis</groupId> <artifactId>xml-apis</artifactId> 
+			<version>2.0.2</version> </dependency> -->
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.0.b2</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- <dependency> <groupId>org.apache.maven.surefire</groupId> <artifactId>surefire-junit</artifactId> 
+			<version>2.6</version> </dependency> -->
+	</dependencies>
+	<build>
+		<!-- <pluginManagement> -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.${java.version}</source>
+					<target>1.${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
+				<configuration>
+					<includes>
+						<exclude>**/*RunCukesTest.java</exclude>
+						<!-- <include>**/*RunCukesTest.java</include> -->
+					</includes>
+					<!-- <excludes> <exclude>**/*RunCukesTest.java</exclude> </excludes> -->
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<!-- This is for Cucumber Custom Report plug in we specify the configuration 
+				details under configuration tag. -->
+			<!-- http://startingwithseleniumwebdriver.blogspot.com/2016/05/custom-cucumber-reporting-using-maven.html -->
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>3.13.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>Simplify360 Automation Test Report</projectName>
+							<outputDirectory>${project.build.directory}/site/cucumber-reports</outputDirectory>
+							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+							<!-- <jsonFiles> <param>${project.build.directory}/cucumber.json</param> 
+								</jsonFiles> -->
+							<!-- <parallelTesting>false</parallelTesting> -->
+							<buildNumber>8.4.1.2</buildNumber>
+
+							<!-- <checkBuildResult>false</checkBuildResult> -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Post-Man plugin -->
+			<plugin>
+				<groupId>ch.fortysix</groupId>
+				<artifactId>maven-postman-plugin</artifactId>
+				<version>0.1.6</version>
+				<executions>
+					<execution>
+
+						<id>send a mail</id>
+						<phase>test</phase>
+						<goals>
+							<goal>send-mail</goal>
+						</goals>
+						<inherited>true</inherited>
+
+						<configuration>
+							<!-- From Email address -->
+							<from>gallowayin@gmail.com</from>
+
+							<!-- Email subject -->
+							<subject>Test Automation Report</subject>
+
+							<!-- Fail the build if the mail doesnt reach -->
+							<failonerror>true</failonerror>
+
+							<!-- host -->
+							<mailhost>smtp.gmail.com</mailhost>
+							<!-- port of the host -->
+							<mailport>465</mailport>
+							<mailssl>true</mailssl>
+							<mailAltConfig>true</mailAltConfig>
+
+							<!-- Email Authentication(USername and Password) -->
+							<mailuser>gallowayin360@gmail.com</mailuser>
+							<mailpassword>Simplify360%</mailpassword>
+
+							<receivers>
+								<!-- To Email address -->
+								<receiver>nagarjun.reddy@simplify360.com</receiver>
+							</receivers>
+
+							<fileSets>
+								<fileSet>
+									<!-- Report directory Path -->
+									<directory>${basedir}/target/site/cucumber-reports/cucumber-html-reports/</directory>
+									<includes>
+										<!-- Report file name -->
+										<include>**/*.html</include>
+										<!-- <include>**/*.png</include> <include>**/*.js</include> <include>**/*.eot</include> 
+											<include>**/*.svg</include> <include>**/*.ttf</include> <include>**/*.woff</include> 
+											<include>**/*.woff2</include> <include>**/*.otf</include> <include>**/*.css</include> -->
+									</includes>
+									<!-- Use Regular Expressions like **/*.html if you want all the 
+										html files to send -->
+								</fileSet>
+							</fileSets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<!-- </pluginManagement> -->
+	</build>
+</project>
