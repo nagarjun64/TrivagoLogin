@@ -74,12 +74,12 @@ public class ReadConfig {
 				loginAdminPassword = prop.getProperty("suiteLoginAdminPassword");
 
 			}
-			else if (baseURL.equalsIgnoreCase("https://new.simplify360.com/") ) {
-
-				loginOwnerEmail = prop.getProperty("localLoginOwnerEmail");
-				loginOwnerPassword = prop.getProperty("localLoginOwnerPassword");
-				loginAdminEmail = prop.getProperty("localLoginAdminEmail");
-				loginAdminPassword = prop.getProperty("localLoginAdminPassword");
+			else if (baseURL.equalsIgnoreCase("https://suitex.simplify360.com/") ) {
+				
+				loginOwnerEmail = prop.getProperty("suiteLoginOwnerEmail");
+				loginOwnerPassword = prop.getProperty("suiteLoginOwnerPassword");
+				loginAdminEmail = prop.getProperty("suiteLoginAdminEmail");
+				loginAdminPassword = prop.getProperty("suiteLoginAdminPassword");
 
 			}
 

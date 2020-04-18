@@ -67,11 +67,14 @@ public class ManageUserAction {
 		mgUser.password.sendKeys(password);
 		mgUser.reenterPwd.sendKeys(reEnterPassword);
 
+		utils.scrolltoElementByLocator(mgUser.reenterPwd);
+		
 		utils.selectElementByVisibleText(mgUser.userRole, Role);
 		utils.selectElementByValue(mgUser.userTimeZones, "Asia/Calcutta");
+		utils.scrolltoElementByLocator(mgUser.reason);
 		utils.scrolltoElementByLocator(mgUser.saveNewUser);
 
-		mgUser.saveNewUser.click();
+//		mgUser.saveNewUser.click();
 
 	}
 

@@ -11,15 +11,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class UILogin {
-	
+
 	public UILogin (WebDriver driver) {
-		
+
 		PageFactory.initElements(driver, this);
-		
+
 	}
 
 	//UserName
-	@FindBy(id = "username")
+	@FindBy(id = "login_emailId")
 	public WebElement userName;
 
 	//Password
@@ -27,20 +27,14 @@ public class UILogin {
 	public WebElement userPassword;
 
 	//LoginButton
-	@FindBy(className="submit")
-	public WebElement oldloginButton;
-
-	//LoginButton
 	@FindBy(id="rp")
 	public WebElement loginButton;
-	
+
 	//ForgotPasswordLink
 	@FindBy(linkText="Forgot")
 	public WebElement forgotPasswordLink;
 
 	@FindBy(className="recaptcha-checkbox-checkmark")
 	public WebElement captcha;
-	
-	
 
 }

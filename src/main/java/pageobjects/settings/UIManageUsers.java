@@ -21,14 +21,14 @@ public class UIManageUsers {
 	//	========Create New user Screen========
 
 	//Create new user button
-	@FindBy(xpath = "//button[contains(text(),'Add User')]")
+	@FindBy(xpath = "//button[@onclick='addNewUser()']")
 	public WebElement createNewUser;
 
 	//Email id for the new user
 	@FindBy(id = "emailId")
 	public WebElement emailId;
 
-	//Shor Name for the new user
+	//Short Name for the new user
 	@FindBy(id = "shortname")
 	public WebElement shortname;
 
@@ -67,35 +67,35 @@ public class UIManageUsers {
 	//==================OutSide of User Creation Screen===========
 
 	//User Search box
-	@FindBy(xpath = "//*[@id='viewAllUsersTable_filter']//input[@aria-controls='viewAllUsersTable']")
+	@FindBy(xpath = "")
 	public WebElement searchUsers;
 
 	//Page Drop Down in Manage users
-	@FindBy(xpath = "//div[@id='viewAllUsersTable_length']//*[@name='viewAllUsersTable_length']")
+	@FindBy(xpath = "")
 	public WebElement pageDropDwn;
 
 	//User Email for the first user
-	@FindBy(xpath = "//tbody[@role='alert']//tr[1]//td[1]//p[2]")
+	@FindBy(xpath = "")
 	public WebElement emailFirstUser;
 
 	//Edit Email for the first user
-	@FindBy(xpath = "//tbody[@role='alert']//tr[1]//td[5]//a[1]//i")
+	@FindBy(xpath = "")
 	public WebElement editFirstUsr;
 
 	//Change Password Email for the first user
-	@FindBy(xpath = "//tbody[@role='alert']//tr[1]//td[5]//a[2]//i")
+	@FindBy(xpath = "")
 	public WebElement changePwdFirstUsr;
 
 	//delete Email for the first user
-	@FindBy(xpath = "//tbody[@role='alert']//tr[1]//td[5]//a[3]//i")
+	@FindBy(xpath = "")
 	public WebElement deleteFirstUsr;
 
 	//Confirm delete user
-	@FindBy(xpath = "//*[@id='jqi_state0_buttonOk']")
+	@FindBy(xpath = "")
 	public WebElement confirmDelete;
 
 	//Cancel delete user
-	@FindBy(xpath = "//*[@id='jqi_state0_buttonCancel']")
+	@FindBy(xpath = "")
 	public WebElement cancelUserDelete;
 
 

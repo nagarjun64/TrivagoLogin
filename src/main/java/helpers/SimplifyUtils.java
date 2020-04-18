@@ -61,7 +61,7 @@ public class SimplifyUtils {
 			Assert.fail("Exception in method mouserhoverbywebelement",e);
 		}
 	}
-*/
+	 */
 	public void closeAcknowledmentMessages(){
 
 		UIMenu menu = new UIMenu(driver);
@@ -160,7 +160,7 @@ public class SimplifyUtils {
 	}
 
 	public String profileNameGen() {
-		
+
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
 		//get current date time with Date()
@@ -170,9 +170,9 @@ public class SimplifyUtils {
 		String dateAndTime = "Auto" + dateFormat.format(date);
 
 		return dateAndTime;
-		
+
 	} 
-	
+
 	public String dateGenerator() {
 
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -201,7 +201,7 @@ public class SimplifyUtils {
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ScrolltoThisElement);
 
 	}
-	
+
 	/*public static String getBrowserName() {
 
 		browserName = System.getProperty(browserName);
@@ -277,7 +277,7 @@ public class SimplifyUtils {
 		WebDriverWait wait = new WebDriverWait(driver, timeToWaitInSeconds);// time in seconds
 
 		wait.until(ExpectedConditions.elementToBeClickable(element));
-		
+
 	}
 
 	public void waitForElementToBeClickable(List<WebElement> element, int timeToWaitInSeconds) {
@@ -287,13 +287,13 @@ public class SimplifyUtils {
 		wait.until(ExpectedConditions.elementToBeClickable((By) element));
 
 	}
-	
+
 	public boolean isClickable(WebElement el) 
 	{
 		try{
 			WebDriverWait wait = new WebDriverWait(driver, 6);
 			wait.until(ExpectedConditions.elementToBeClickable(el));
-//			return true;
+			//			return true;
 			return el.isDisplayed()&& el.isEnabled();
 		}
 		catch (Exception e){
@@ -426,7 +426,7 @@ public class SimplifyUtils {
 		return iSize;
 
 	}
-	
+
 	public  void selectElementByVisibleText(WebElement element, String Name) {
 
 
@@ -435,13 +435,13 @@ public class SimplifyUtils {
 
 		selectitem.selectByVisibleText(Name);
 	}
-	
+
 	public void scrollInToView(WebElement element){
 
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 
 	}
-	
+
 	public void scrollToElement(WebElement requiredElement){
 
 		WebElement element = requiredElement;
@@ -450,13 +450,13 @@ public class SimplifyUtils {
 		actions.perform();
 
 	}
-	
+
 	public void scrollInToEndOfPage(){
 
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
 	}
-	
+
 	public void scrollInDiv(WebElement element){
 
 		JavascriptExecutor jsExec = (JavascriptExecutor) driver;
@@ -514,7 +514,23 @@ public class SimplifyUtils {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
+	public void zoomIn(int n){
+
+		((JavascriptExecutor)driver).executeScript("document.body.style.zoom=%;");
+		
+	}
+
+	public void zoomOut(){
+		
+		((JavascriptExecutor)driver).executeScript("document.body.style.zoom='50%';");
+	}
+
+	public void resetZoom(){
+		//To set browser to default zoom level 100%
+		((JavascriptExecutor)driver).executeScript("document.body.style.zoom='100%';");
+	}
+
 
 }

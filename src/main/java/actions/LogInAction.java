@@ -26,19 +26,22 @@ public class LogInAction {
 
 		UILogin loginHome = new UILogin(driver);
 		UIHomePage uiHome = new UIHomePage(driver);
+		UIMenu menu = new UIMenu(driver);
 		SimplifyUtils simplifyUtils = new SimplifyUtils();
 
 //		Log.info("Login UserName: "+ReadConfig.loginOwnerEmail);
 		loginHome.userName.sendKeys(ReadConfig.loginOwnerEmail);
 
+		simplifyUtils.pause(20);
+		
 //		Log.info("Login Password: "+ ReadConfig.loginOwnerPassword);
 		loginHome.userPassword.sendKeys(ReadConfig.loginOwnerPassword);
 
 		loginHome.loginButton.submit();
 		
-		simplifyUtils.pause(3000);
+		simplifyUtils.pause(300);
 		
-		simplifyUtils.waitTillElementFound(uiHome.welcomeText, 120);
+		simplifyUtils.waitTillElementFound(menu.homePage, 120);
 		
 	}
 

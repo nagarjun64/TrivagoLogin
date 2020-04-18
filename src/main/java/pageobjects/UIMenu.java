@@ -20,28 +20,20 @@ public class UIMenu {
 	@FindAll(@FindBy(how = How.XPATH, using = "//div[starts-with(@class,'messenger-message')]//button[starts-with(@data-dismiss,'alert')]"))
 	public List<WebElement> acknowledmentMessage;
 
-	//============================================Listen============================================//
+	//============================================Home============================================//
 
-	//Listen
-	@FindBy(xpath = "//*[@id='listen']//*[@data-original-title='Listen']")
-	public WebElement listen;
+	//Home
+	@FindBy(xpath = "//span[contains(text(),'Home')]")
+	public WebElement homePage;
 
-	//Listen Home
-	//	@FindBy(linkText = "Listen Home")
-	@FindBy(xpath = "//*[@id='listen']//li[@id='listen_home']/a")
-	public WebElement listenHome;
+	//============================================Unibox+============================================//
 
-	//============================================Analyze============================================//
-
-	//Analyze
-	@FindBy(xpath = "//*[@id='analyze']//span[1]")
+	//Unibox+
+	@FindBy(xpath = "//span[contains(text(),'Unibox')]")
 	public WebElement analyze;
 
-	//Post Analysis 
-	@FindBy(xpath = "//*[@id='post_analytics']//a")
-	public WebElement postAnalysis ;
 
-	//============================================Publish============================================//
+	//============================================Stacking View============================================//
 
 	//Publish
 	@FindBy(linkText = "Publish")
@@ -113,15 +105,15 @@ public class UIMenu {
 	@FindBy(xpath = "//*[@id='report_social']//a")
 	public WebElement socialActReport;
 
-	//============================================Admin============================================//
+	//============================================Settings============================================//
 
-	//Admin
-	@FindBy(xpath = "//*[@id='admin']//a")
-	public WebElement admin;
+	//Settings
+	@FindBy(xpath = "//span[contains(text(),'Settings')]")
+	public WebElement settings;
 
-	//Manage Channels
-	@FindBy(linkText = "Manage Channels")
-	public WebElement manageAdminChannels;
+	//Bulk Operations
+	@FindBy(xpath = "//a[contains(text(),'Bulk Operations')]")
+	public WebElement bulkOperations;
 
 	//Manage Competitor Channels
 	@FindBy(linkText = "Manage Competitor Channels")
@@ -148,12 +140,12 @@ public class UIMenu {
 	public WebElement manageContacts;
 
 	//Manage Users
-	@FindBy(linkText = "Manage Users")
-	public WebElement manageUsers;
+	@FindBy(xpath = "//a[contains(text(),'Users')]")
+	public WebElement users;
 
 	//Manage Roles And Permissions
 	@FindBy(linkText = "Manage Roles/Permissions")
-	public WebElement manageRolesPermissions;
+	public WebElement rolesPermissions;
 
 	//Manage teams
 	@FindBy(linkText = "Manage Teams")

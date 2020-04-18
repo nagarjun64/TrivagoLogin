@@ -483,14 +483,17 @@ public class OpenModule {
 		UIManageUsers mgUser = new UIManageUsers(driver);
 		SimplifyUtils utils = new SimplifyUtils();
 
-		utils.waitForElementToBeClickable(uiMenu.admin, 5);
-
-		uiMenu.admin.click();
-
+		utils.waitForElementToBeClickable(uiMenu.settings, 5);
+		
+		uiMenu.settings.click();
+		
 		utils.pause(100);
-		utils.scrolltoElementByLocator(uiMenu.manageUsers);
+		
+		utils.scrolltoElementByLocator(uiMenu.users);
+		
+		utils.pause(30);
 
-		uiMenu.manageUsers.click();
+		uiMenu.users.click();
 
 		utils.waitForElementToBeClickable(mgUser.createNewUser, 5);
 

@@ -1,6 +1,6 @@
 Feature: Manage Users
 
-@smoke
+
   Scenario Outline: Open Broadcast after clicking on broad cast
     Given User Navigates to Manage User Page
     When Clicks on Add new User
@@ -12,7 +12,7 @@ Feature: Manage Users
       | randomuser@gmail.com | Puser1    | User 1    | Performance1 | Simplify360@% | Simplify360@%   | ADMIN |
       
 
-  
+ @user 
   Scenario: Create New user
     Given User Navigates to Manage User Page
     When Clicks on Add new User
