@@ -70,8 +70,26 @@ public class UIMenu {
 	//============================================Reports============================================//
 
 	//Reports Main Menu
-	@FindBy(linkText = "//*[@id='main-menu-navigation']//span[contains(text(),'Reports')]")
+	@FindBy(linkText = "//span[contains(text(),'Reports')]")
 	public WebElement reports;
+
+	//Activity Report in Menu
+	@FindBy(xpath = "//span[contains(text(),'Reports')]/../..//a[text() = 'Activity']")
+	public WebElement activityReport;
+
+	//Agent Report in Menu
+	@FindBy(xpath = "//span[contains(text(),'Reports')]/../..//a[text() = 'Agent']")
+	public WebElement agentReport;
+
+	//Break Report in Menu
+	@FindBy(xpath = "//span[contains(text(),'Reports')]/../..//a[contains(text(),'Break')]")
+	public WebElement breakReport;
+
+	//Case SLA Report in Menu
+	@FindBy(xpath = "//span[contains(text(),'Reports')]/../..//a[contains(text(),'Case SLA')]")
+	public WebElement caseSLAReport;
+
+
 
 	//Brand Performance Report
 	@FindBy(linkText = "Brand Performance Report")
@@ -85,17 +103,10 @@ public class UIMenu {
 	@FindBy(xpath = "//*[@id='report_login']//a")
 	public WebElement loginReport;
 
-	//Break Report in Menu
-	@FindBy(xpath = "//*[@id='report_break']//a")
-	public WebElement breakReport;
 
 	//Tagging Report in Menu
 	@FindBy(xpath = "//*[@id='report_tag']//a")
 	public WebElement taggingReport;
-
-	//Activity Report in Menu
-	@FindBy(xpath = "//*[@id='report_activity']//a")
-	public WebElement activityReport;
 
 	//Facebook Insights Link in the menu
 	@FindBy(xpath = "//*[@id='report_sentiment']//a")

@@ -15,7 +15,6 @@ public class UIBoss {
 	}
 
 	//Switch User option
-//	@FindBy(id = "ui-id-2")
 	@FindBy(xpath = "//*[(@title='#tabs-switchusr')]")
 	public WebElement switchUserOptn;
 

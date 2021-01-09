@@ -22,87 +22,55 @@ public class LogInAction {
 		driver = Hooks.driver;
 	}
 
-	public void loginAsOwner(){
+	public void openLoginPage() {
+
+		UIHomePage home = new UIHomePage(driver);
+		SimplifyUtils simplifyUtils = new SimplifyUtils();
+
+		simplifyUtils.waitTillElementFound(home.loginButton ,120);
+
+		home.loginButton.click();
+
+	}
+
+	public void loginAsCustomer(){
 
 		UILogin loginHome = new UILogin(driver);
 		UIHomePage uiHome = new UIHomePage(driver);
 		UIMenu menu = new UIMenu(driver);
 		SimplifyUtils simplifyUtils = new SimplifyUtils();
 
-//		Log.info("Login UserName: "+ReadConfig.loginOwnerEmail);
-		loginHome.userName.sendKeys(ReadConfig.loginOwnerEmail);
+		//		Log.info("Login UserName: "+ReadConfig.loginOwnerEmail);
 
-		simplifyUtils.pause(20);
-		
-//		Log.info("Login Password: "+ ReadConfig.loginOwnerPassword);
-		loginHome.userPassword.sendKeys(ReadConfig.loginOwnerPassword);
-
-		loginHome.loginButton.submit();
-		
-		simplifyUtils.pause(300);
-		
-		simplifyUtils.waitTillElementFound(menu.homePage, 120);
-		
 	}
 
-	public void loginAsAdmin(){
-
-		UILogin loginHome = new UILogin(driver);
-		UIHomePage uiHome = new UIHomePage(driver);
-		SimplifyUtils simplifyUtils = new SimplifyUtils();;
-
-		loginHome.userName.sendKeys(ReadConfig.loginAdminEmail);
-
-		loginHome.userPassword.sendKeys(ReadConfig.loginAdminPassword);
-
-		loginHome.loginButton.click();
-		
-		simplifyUtils.pause(2000);
-		
-		simplifyUtils.waitTillElementFound(uiHome.welcomeText, 120);
-	}
 
 	public void login(String userEmail, String password){
 
-		UILogin loginHome = new UILogin(driver);
-		UIHomePage uiHome = new UIHomePage(driver);
+
+		UIHomePage homepage = new UIHomePage(driver);
+		UILogin loginPage = new UILogin(driver);
 		SimplifyUtils simplifyUtils = new SimplifyUtils();
 
-		loginHome.userName.sendKeys(ReadConfig.loginOwnerEmail);
+		loginPage.loginEmail.sendKeys(userEmail);
+		simplifyUtils.pause(2000);
+		simplifyUtils.waitForElementToBeClickable(loginPage.googleLogin, 5);
+		loginPage.loginNext.click();
 
-		loginHome.userPassword.sendKeys(ReadConfig.loginOwnerPassword);
-
-		loginHome.loginButton.submit();
-		
+		simplifyUtils.waitTillElementFound(loginPage.loginPassword ,120);
 		simplifyUtils.pause(2000);
 		
-		simplifyUtils.waitTillElementFound(uiHome.welcomeText, 120);
+		loginPage.loginPassword.sendKeys(password);
+		simplifyUtils.pause(2000);
+
+		simplifyUtils.waitTillElementFound(loginPage.login ,120);
+
+		loginPage.login.click();
+		simplifyUtils.pause(2000);
+
+
 	}
-	
-	public void switchUser(){
 
-		UIBoss boss = new UIBoss(driver);
-		UIMenu menu = new UIMenu(driver);
-		SimplifyUtils sutils = new SimplifyUtils();
-		
-		driver.get(ReadConfig.baseURL+"Boss");
 
-		sutils.implicitlyWaitFor(20);
-		sutils.pause(20000);
-		
-		boss.switchUserOptn.click();
-		
-		sutils.implicitlyWaitFor(8);
-
-		sutils.selectElementByValue(boss.switchUserDropDown, "nagarjun.reddy@in-rev.com");
-		
-		boss.switchUserBtn.click();
-
-		sutils.implicitlyWaitFor(3);
-		
-		sutils.waitForElementToBeClickable(menu.listenHome, 12);
-		
-	}
-	
 
 }

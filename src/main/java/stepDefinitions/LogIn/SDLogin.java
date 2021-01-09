@@ -9,9 +9,10 @@ import org.junit.Assert;
 import org.junit.ComparisonFailure;
 import org.openqa.selenium.WebDriver;
 
+import actions.AccountRegistraction;
+import actions.LogInAction;
 import pageobjects.UIHomePage;
 import pageobjects.Login.UILogin;
-import stepDefinitions.reports.SDSentimentReport;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -30,60 +31,68 @@ public class SDLogin {
 	}
 
 
-	@When("^User enter the valid credentials$")
-	public void inputUserCredentials() throws Throwable {
+	@Given("Customer opens Trivago account")
+	public void customer_opens_Trivago_account() {
 
-		UILogin login = new UILogin(driver);
-
-		login.userName.sendKeys(ReadConfig.loginOwnerEmail);
-
-		login.userPassword.sendKeys(ReadConfig.loginOwnerPassword);
-	}
-
-	@When("^Click on Login$")
-	public void clickLogin() throws Throwable {
-
-		UILogin login = new UILogin(driver);
-
-		login.loginButton.submit();
+		driver.get(ReadConfig.baseURL);
 
 	}
 
-	@Then("^Home Page should be displayed$")
-	public void verifyUserHomePageIsDisplayed() throws Throwable {
+	@Then("Customer should login successfully")
+	public void customer_should_login_successfully() {
 
-		UIHomePage home = new UIHomePage(driver);
-		SimplifyUtils simplifyUtils = new SimplifyUtils();
-
-		simplifyUtils.pause(4000);
-
-		Assert.assertTrue(home.welcomeText.getText().equalsIgnoreCase("Welcome"));
 
 	}
 
-	@When("^User enter the inValid credentials$")
-	public void userProviesInValidCredentials() throws Throwable {
 
-		UILogin login = new UILogin(driver);
+	@Given("Account is created on Trivago")
+	public void account_is_created_on_Trivago() {
 
-		login.userName.sendKeys("invalidLogin@invalidlogin.com");
+		AccountRegistraction registration = new AccountRegistraction();
+		LogInAction login = new LogInAction();
+		SimplifyUtils utils = new SimplifyUtils();
 
-		login.userPassword.sendKeys("invalidlogin");
+		//		driver.manage().deleteAllCookies();
+
+
+		login.openLoginPage();
+
+		utils.pause(2000);
+
+		login.login("testngarjuna@123.com", "StrongPassword#123");
+
+		//		registration.registerLoginUsingEmail(testngarjuna@123.com, StrongPassword#123);
+
 
 	}
 
-	@Then("^Error Message Should be displayed$")
-	public void verifyInValidLoginErrorTextPresent() throws Throwable {
-
-		UIHomePage home = new UIHomePage(driver);
-		SimplifyUtils simplifyUtils = new SimplifyUtils();
-
-		simplifyUtils.pause(2000);
-
+	@Given("Logged in using the created account")
+	public void logged_in_using_the_created_account() {
 		
+		
+		AccountRegistraction registration = new AccountRegistraction();
+		LogInAction login = new LogInAction();
+		SimplifyUtils utils = new SimplifyUtils();
+
+		login.openLoginPage();
+
+		utils.pause(2000);
+
+		login.login("testngarjuna@123.com", "StrongPassword#123");
+
+	}
+
+	@When("Ticket is created from Help Section located in Account Settings")
+	public void ticket_is_created_from_Help_Section_located_in_Account_Settings() {
+
+	}
+
+	@Then("Ticket should be created successfully")
+	public void ticket_should_be_created_successfully() {
+
 		try 
 		{
-			Assert.assertEquals(home.inCorrectLoginText.getText(), ReadConfig.invalidLoginErrorText);
+			//			Assert.assertEquals();
 		} 
 		catch (ComparisonFailure e) 
 		{
@@ -92,6 +101,7 @@ public class SDLogin {
 		}
 
 	}
+
 
 
 }
