@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import actions.AccountRegistraction;
 import actions.LogInAction;
 import pageobjects.UIHomePage;
+import pageobjects.UIUserSection;
 import pageobjects.Login.UILogin;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -33,8 +34,7 @@ public class SDLogin {
 
 	@Given("Customer opens Trivago account")
 	public void customer_opens_Trivago_account() {
-
-		driver.get(ReadConfig.baseURL);
+		
 
 	}
 
@@ -44,7 +44,6 @@ public class SDLogin {
 
 	}
 
-
 	@Given("Account is created on Trivago")
 	public void account_is_created_on_Trivago() {
 
@@ -53,7 +52,6 @@ public class SDLogin {
 		SimplifyUtils utils = new SimplifyUtils();
 
 		//		driver.manage().deleteAllCookies();
-
 
 		login.openLoginPage();
 
@@ -69,21 +67,24 @@ public class SDLogin {
 	@Given("Logged in using the created account")
 	public void logged_in_using_the_created_account() {
 		
-		
-		AccountRegistraction registration = new AccountRegistraction();
-		LogInAction login = new LogInAction();
-		SimplifyUtils utils = new SimplifyUtils();
-
-		login.openLoginPage();
-
-		utils.pause(2000);
-
-		login.login("testngarjuna@123.com", "StrongPassword#123");
+		  AccountRegistraction registration = new AccountRegistraction(); LogInAction
+		  login = new LogInAction(); 
+		  SimplifyUtils utils = new SimplifyUtils();
+		  
+		  login.openLoginPage();
+		  
+		  utils.pause(2000);
+		  
+		  
+		  
+		  login.login("testngarjuna@123.com", "StrongPassword#123");
+		 
 
 	}
 
 	@When("Ticket is created from Help Section located in Account Settings")
 	public void ticket_is_created_from_Help_Section_located_in_Account_Settings() {
+		
 
 	}
 
@@ -100,6 +101,26 @@ public class SDLogin {
 			Assert.fail();
 		}
 
+	}
+	
+	@When("Navigated to Account Settings Page")
+	public void navigated_to_Account_Settings_Page() {
+		
+		UIHomePage homePage = new UIHomePage(driver);
+		UIUserSection userSection = new UIUserSection(driver);
+		SimplifyUtils utils = new SimplifyUtils();
+		
+		utils.scrollToElement(userSection.usrLoggedIn);
+		
+		utils.pause(1000);
+		
+		userSection.acctSettings.click();
+		
+	}
+
+	@Then("Account Settings Page should Load")
+	public void account_Settings_Page_should_Load() {
+		
 	}
 
 

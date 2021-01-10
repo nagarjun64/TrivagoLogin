@@ -32,3 +32,12 @@ Feature: Title of your feature
     And Logged in using the created account
     When Ticket is created from Help Section located in Account Settings
     Then Ticket should be created successfully
+
+  @AccountSettings
+  Scenario: Create an account on Trivago and login successfully
+    Given Customer opens Trivago account
+    And Logged in using the created account
+    When Navigated to Account Settings Page
+    Then Account Settings Page should Load
+    
+    

@@ -519,11 +519,11 @@ public class SimplifyUtils {
 	public void zoomIn(int n){
 
 		((JavascriptExecutor)driver).executeScript("document.body.style.zoom=%;");
-		
+
 	}
 
 	public void zoomOut(){
-		
+
 		((JavascriptExecutor)driver).executeScript("document.body.style.zoom='50%';");
 	}
 
@@ -531,7 +531,13 @@ public class SimplifyUtils {
 		//To set browser to default zoom level 100%
 		((JavascriptExecutor)driver).executeScript("document.body.style.zoom='100%';");
 	}
-	
+
+	public void ClearBrowserCache() throws InterruptedException
+	{
+		driver.manage().deleteAllCookies();//delete all cookies
+		Thread.sleep(5000); //wait 7 seconds to clear cookies.
+	}
+
 
 
 }

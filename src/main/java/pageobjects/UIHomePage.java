@@ -20,22 +20,6 @@ public class UIHomePage {
 	public WebElement loginButton;
 
 
-	//=======================================User Section=======================================//
-	
-	//logged in user email
-	@FindBy(how=How.XPATH, using="//button[@id='user']//span[@id='user-text']")
-	public WebElement usrLoggedIn;
-	
-	
-	//Account Settings
-	@FindBy(how=How.XPATH, using="//a[@class='popover-list__link'][contains(text(),'Account settings')]")
-	public WebElement acctSettings;
-	
-	//Account Settings
-	@FindBy(how=How.XPATH, using="//a[@class='popover-list__link'][contains(text(),'Help and support')]")
-	public WebElement helpAndSupport;
-	
-
 	//=======================================Search=======================================//
 
 	@FindBy(how=How.XPATH, using="//input[@id='querytext']")
