@@ -53,6 +53,8 @@ public class SDLogin {
 
 		//		driver.manage().deleteAllCookies();
 
+		utils.pause(3000);
+		
 		login.openLoginPage();
 
 		utils.pause(2000);

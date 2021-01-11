@@ -20,15 +20,22 @@ public class UISearchResults {
 	public WebElement ratingFilter;
 
 	//search Suggestions
-	@FindAll(@FindBy(how = How.XPATH, using = "//*[@data-qa='rating-filter']//li[@class='range__item']"))
+	@FindAll(@FindBy(how = How.XPATH, using = "//*[@data-qa='item-name']"))
 	public List <WebElement> srchSuggestions;
 
 	@FindBy(how=How.XPATH, using="//*[@data-qa='rating-filter']//li[@class='range__item']//span[contains(text(),'Excellent')]")
 	public WebElement ExcellentRating;
 
+	//Total pages
+	@FindAll(@FindBy(how = How.XPATH, using = "//*[@class=\"pagination__pages\"]//*[starts-with(@class,'btn')]"))
+	public List <WebElement> totalSearchPages;
 	
+	//navigaterRight
+	@FindBy(how=How.XPATH, using="//span[@class='icon-ic icon-rtl pagination__icon icon-contain']")
+	public WebElement navigateRight;
+
 	//===========================Search Results============================================
-	
+
 	//hotel/resort search results
 	@FindAll(@FindBy(how = How.XPATH, using = "//span[@data-qa='item-name']"))
 	public List <WebElement> searchResults;

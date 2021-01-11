@@ -38,6 +38,7 @@ public class Hooks{
 		log.info("Calling openBrowser in Hooks");
 
 		String OS = System.getProperty("os.name").toLowerCase();
+		SimplifyUtils utils = new SimplifyUtils();
 		ReadConfig readConfig = new ReadConfig();
 
 		log.info("OS is ===> " + OS);
@@ -140,7 +141,7 @@ public class Hooks{
 
 				driver = new ChromeDriver(chromeOptions);
 
-				driver.manage().deleteAllCookies();
+//				driver.manage().deleteAllCookies();
 			}
 
 			driver.manage().window().maximize();
@@ -204,7 +205,7 @@ public class Hooks{
 		log.info("Testing on ===> " + ReadConfig.baseURL);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		
 	}
 
 	@After

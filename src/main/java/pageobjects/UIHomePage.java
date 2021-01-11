@@ -33,6 +33,12 @@ public class UIHomePage {
 	@FindAll(@FindBy(how = How.XPATH, using = "//span[@class='ssg-subtitle']"))
 	public List <WebElement> srchSuggestionsType;
 	
+	@FindBy(how=How.XPATH, using="//button[@data-qa='calendar-checkin']")
+	public WebElement checkInDate;
+	
+	@FindBy(how=How.XPATH, using="//button[@data-qa='calendar-checkout']")
+	public WebElement checkOutDate;
+	
 	@FindBy(how=How.XPATH, using="//div[@class='room-filters__content']//button[@data-role='removeAdult']")
 	public WebElement adultsCntReduce;
 	

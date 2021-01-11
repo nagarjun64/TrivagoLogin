@@ -1,7 +1,10 @@
 package helpers;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.sql.DriverPropertyInfo;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +20,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -538,6 +542,188 @@ public class SimplifyUtils {
 		Thread.sleep(5000); //wait 7 seconds to clear cookies.
 	}
 
+	public void selectDate(String monthyear, String Selectday) throws InterruptedException
+	{		
+		List<WebElement> elements = driver.findElements(By.xpath("//button[@data-qa='calendar-checkin']"));
 
+		for (int i=0; i<elements.size();i++)
+		{
+			System.out.println(elements.get(i).getText());
+			//Selecting the month
+			if(elements.get(i).getText().equals(monthyear))
+			{
+				//Selecting the date				
+				List<WebElement> days = driver.findElements(By.xpath("//div[@class='rsdc-months']/span[2]/span"));
+
+				for (WebElement d:days)
+				{
+					System.out.println(d.getText());
+					if(d.getText().equals(Selectday))
+					{
+						d.click();
+						Thread.sleep(10000);
+						return;
+					}
+				}								
+
+			}			
+
+		}
+		driver.findElement(By.xpath("//div[@class='rsdc-wrapper rsdc-dual-month']/div[2]/div[1]")).click();
+
+		//		selectDate(monthyear,Selectday);	
+
+	}
+
+	public void selectStartDate(String ExpectedMonth, String ExpectedDay)
+	{	
+
+		SimplifyUtils utils = new SimplifyUtils();
+
+		//current month text
+		//		String CurrentMonth = driver.findElement(By.xpath("(//*[@class='cal-month']//*[@id='cal-heading-month'])[1]")).getText();
+		String CurrentMonth = driver.findElement(By.xpath("//*[@id='cal-heading-month']")).getText();
+		utils.scrollInToView(driver.findElement(By.xpath("//*[@id='cal-heading-month']")));	
+		utils.pause(500);
+
+		if(ExpectedMonth.equalsIgnoreCase(CurrentMonth)) {
+
+			System.out.println("Month is same");
+		}
+		else
+		{
+
+			for (int i = 0; i < 12; i++) {
+
+				//clicking on next button
+				int elementcount = driver.findElements(By.xpath("//div[@class='df_container_calendar']//button[@type='button']")).size();
+
+				System.out.println(elementcount);
+				if(elementcount==1) 
+				{
+
+					driver.findElement(By.xpath("//div[@class='df_container_calendar']//button[@type='button']")).click();
+					utils.pause(500);
+				}
+				else if(elementcount>1)
+				{
+					driver.findElement(By.xpath("//div[@class='df_container_calendar']//button[@type='button'][2]")).click();
+					utils.pause(500);
+				}
+
+				utils.pause(1000);
+
+				CurrentMonth = driver.findElement(By.xpath("//*[@id='cal-heading-month']")).getText();;
+				utils.pause(500);
+
+				if(CurrentMonth.equalsIgnoreCase(ExpectedMonth)) 
+				{
+					System.out.println("Month is Selected");
+					break;
+
+				}
+
+			}
+		}
+
+		List<WebElement> DatePicker = driver.findElements(By.xpath("//*[@class='cal-month'][1]//*[@class='cal-day-wrap']//*[contains(@class,'cal-is-selectable')]"));
+
+		for(WebElement element: DatePicker) {
+
+			String calDate = element.getAttribute("datetime");
+			utils.pause(500);
+
+			if (calDate.equals(ExpectedDay)) {
+
+				element.click();
+				break;
+
+			}
+
+
+		}
+
+	}
+
+	public void selectEndDate(String ExpectedMonth, String ExpectedDay)
+	{	
+
+		SimplifyUtils utils = new SimplifyUtils();
+
+		//current month text
+		//		String CurrentMonth = driver.findElement(By.xpath("(//*[@class='cal-month']//*[@id='cal-heading-month'])[1]")).getText();
+		String CurrentMonth = driver.findElement(By.xpath("//*[@id='cal-heading-month']")).getText();
+		utils.pause(500);
+
+		if(ExpectedMonth.equalsIgnoreCase(CurrentMonth)) {
+
+			System.out.println("Month is same");
+		}
+		else
+		{
+
+			for (int i = 0; i < 12; i++) {
+
+				//clicking on next button
+				int elementcount = driver.findElements(By.xpath("//div[@class='df_container_calendar']//button[@type='button']")).size();
+
+				System.out.println(elementcount);
+				if(elementcount==1) 
+				{
+
+					driver.findElement(By.xpath("//div[@class='df_container_calendar']//button[@type='button']")).click();
+					utils.pause(500);
+				}
+				else if(elementcount>1)
+				{
+					driver.findElement(By.xpath("//div[@class='df_container_calendar']//button[@type='button'][2]")).click();
+					utils.pause(500);
+				}
+
+				utils.pause(1000);
+
+				CurrentMonth = driver.findElement(By.xpath("//*[@id='cal-heading-month']")).getText();;
+				utils.pause(500);
+
+				if(CurrentMonth.equalsIgnoreCase(ExpectedMonth)) 
+				{
+					System.out.println("Month is Selected");
+					break;
+
+				}
+
+			}
+		}
+
+		List<WebElement> DatePicker = driver.findElements(By.xpath("//*[@class='cal-month'][1]//*[@class='cal-day-wrap']//*[contains(@class,'cal-is-selectable')]"));
+
+		for(WebElement element: DatePicker) {
+
+			String calDate = element.getAttribute("datetime");
+			utils.pause(500);
+
+			if (calDate.equals(ExpectedDay)) {
+
+				element.click();
+				break;
+
+			}
+
+
+		}
+
+	}
+
+	/*
+	 * public void cookie() {
+	 * 
+	 * File file = new File("Cookiefile.data"); // Delete old file if already exists
+	 * file.delete(); file.createNewFile(); FileWriter file = new FileWriter(file);
+	 * BufferedWriter Bwritecookie = new BufferedWriter(file); //Getting the cookie
+	 * information for(Cookie ck : driver.manage().getCookies()) {
+	 * Bwrite.write((ck.getName()+";"+ck.getValue()+";"+ck.getDomain()+";"+ck.
+	 * getPath()+";"+ck.getExpiry()+";"+ck.isSecure())); Bwritecookie.newLine(); }
+	 * Bwritecookie.close(); file.close(); }
+	 */
 
 }
