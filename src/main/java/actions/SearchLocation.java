@@ -142,5 +142,35 @@ public class SearchLocation {
 
 		return placePresent;
 	}
+	
+	public void viewDeal(String requiredPlace) 
+	{
+
+		UISearchResults searchResults = new UISearchResults(driver);
+		List<WebElement> results =  searchResults.srchSuggestions;
+		int pagesCount = searchResults.totalSearchPages.size();
+		boolean placePresent = false;
+		
+
+		for(int i = 0; i <= pagesCount; i++) {
+
+			for (int j=0; j<=searchResults.srchSuggestions.size(); j++) {
+				
+				System.out.println(searchResults.srchSuggestions.get(j).getText());
+				
+				if(searchResults.srchSuggestions.get(j).getText().equalsIgnoreCase(requiredPlace)) {
+					searchResults.cheapDeal.get(j).click();
+					placePresent = true;
+					break;
+					
+				}
+				
+			}
+
+		}
+
+	}
+	
+	
 
 }

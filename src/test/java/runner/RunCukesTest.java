@@ -15,10 +15,10 @@ import io.cucumber.junit.Cucumber;
 		//		plugin = {"html:target/site/cucumber-pretty","json:target/cucumber.json"},
 		plugin = {"pretty","json:target/cucumber.json","html:target/cucumber-reports", "summary"},
 		//		tags = {"@currentTest,@ReportSanity"},
-				tags = {"@SearchForResort"},
+				tags = {"@viewDealsForResort"},
 //		tags = {"@TicketCreation"},
 		glue={"helpers","stepDefinitions"},
-		//		dryRun = true,
+//				dryRun = true,
 		monochrome = true //if you want console output from Cucumber in a readable format, you can specify it like this, 
 		)
 

@@ -29,7 +29,7 @@ public class UISearchResults {
 	//Total pages
 	@FindAll(@FindBy(how = How.XPATH, using = "//*[@class=\"pagination__pages\"]//*[starts-with(@class,'btn')]"))
 	public List <WebElement> totalSearchPages;
-	
+
 	//navigaterRight
 	@FindBy(how=How.XPATH, using="//span[@class='icon-ic icon-rtl pagination__icon icon-contain']")
 	public WebElement navigateRight;
@@ -39,5 +39,20 @@ public class UISearchResults {
 	//hotel/resort search results
 	@FindAll(@FindBy(how = How.XPATH, using = "//span[@data-qa='item-name']"))
 	public List <WebElement> searchResults;
+
+	//View deal button for the resort
+	@FindAll(@FindBy(how = How.XPATH, using = "//button[@data-qa='champion-deal']"))
+	public List <WebElement> viewDeal;
+
+
+	//Cheap deal button for the resort
+	@FindAll(@FindBy(how = How.XPATH, using = "//button[@data-qa='cheapest-deal']"))
+	public List <WebElement> cheapDeal;
+	
+//	Deal Tab
+	@FindBy(how=How.XPATH, using="//*[@data-qa-id='deals']")
+	public WebElement dealTab;
+	
+
 
 }
