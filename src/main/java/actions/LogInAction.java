@@ -28,6 +28,7 @@ public class LogInAction {
 		SimplifyUtils simplifyUtils = new SimplifyUtils();
 
 		simplifyUtils.waitTillElementFound(home.loginButton ,120);
+		simplifyUtils.cookie();
 
 		home.loginButton.click();
 

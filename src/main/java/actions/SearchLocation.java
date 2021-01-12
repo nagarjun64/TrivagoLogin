@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -60,38 +61,89 @@ public class SearchLocation {
 
 	}
 
-	public void reuiredAdutlsChildRooms(int adultsCnt, int childCnt, int roomCnt) {
+	public void requiredAdutlsChildRooms(int adultsCnt, int childCnt, int roomCnt) {
 
 		UIHomePage search = new UIHomePage(driver);
 		SimplifyUtils utils = new SimplifyUtils();
 
-		search.adultsCnt.clear();
-		utils.pause(2000);
+
+		utils.pause(1000);
+
+		search.adultsCnt.clear(); utils.pause(2000);
 		search.adultsCnt.sendKeys(String.valueOf(adultsCnt));
 
+
+
 		/*
-		 * if(Integer.parseInt(search.adultsCnt.getText())==adultsCnt) {
+		 * int currentAdultsCnt = Integer.parseInt(search.adultsCnt.getText());
 		 * 
+		 * if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt<adultsCnt)) {
 		 * 
-		 * } else if(Integer.parseInt(search.adultsCnt.getText())!=adultsCnt) {
+		 * for(int i=0; i<adultsCnt-currentAdultsCnt;i++) {
+		 * search.adultsCntIncrease.click();
+		 * 
+		 * }
+		 * 
+		 * } else if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt>adultsCnt)) {
+		 * 
+		 * for(int i=0; i<currentAdultsCnt-adultsCnt;i++) {
+		 * search.adultsCntReduce.click();
+		 * 
+		 * }
 		 * 
 		 * 
 		 * }
 		 */
 
-		search.childrenCnt.clear();
-		utils.pause(2000);
+		search.childrenCnt.clear(); utils.pause(2000);
 		search.childrenCnt.sendKeys(String.valueOf(childCnt));
 
-		search.roomCnt.clear();
-		utils.pause(2000);
+		search.roomCnt.clear(); utils.pause(2000);
 		search.roomCnt.sendKeys(String.valueOf(roomCnt));
+
 
 		search.applyRoomType.click();
 		utils.pause(2000);
 
 
 	}
+
+	public void requiredAdutlsChildRooms(int adultsCnt) {
+
+		UIHomePage search = new UIHomePage(driver);
+		SimplifyUtils utils = new SimplifyUtils();
+
+
+		utils.pause(1000);
+
+		search.adultsCntReduce.click();
+
+		/*
+		 * int currentAdultsCnt = Integer.parseInt(search.adultsCnt.getText());
+		 * 
+		 * if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt<adultsCnt)) {
+		 * 
+		 * for(int i=0; i<adultsCnt-currentAdultsCnt;i++) {
+		 * search.adultsCntIncrease.click();
+		 * 
+		 * }
+		 * 
+		 * } else if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt>adultsCnt)) {
+		 * 
+		 * for(int i=0; i<currentAdultsCnt-adultsCnt;i++) {
+		 * search.adultsCntReduce.click();
+		 * 
+		 * }
+		 * 
+		 * 
+		 * }
+		 */
+
+		search.applyRoomType.click();
+		utils.pause(2000);
+
+	}
+
 
 
 	public void exceuteSearch(){
@@ -142,35 +194,52 @@ public class SearchLocation {
 
 		return placePresent;
 	}
-	
+
 	public void viewDeal(String requiredPlace) 
 	{
 
 		UISearchResults searchResults = new UISearchResults(driver);
+		SimplifyUtils utils = new SimplifyUtils();
 		List<WebElement> results =  searchResults.srchSuggestions;
 		int pagesCount = searchResults.totalSearchPages.size();
 		boolean placePresent = false;
-		
 
-		for(int i = 0; i <= pagesCount; i++) {
 
-			for (int j=0; j<=searchResults.srchSuggestions.size(); j++) {
-				
+		for(int i = 0; i < pagesCount; i++) {
+			System.out.println(searchResults.srchSuggestions.size());
+			for (int j=0; j<searchResults.srchSuggestions.size(); j++) {
+
 				System.out.println(searchResults.srchSuggestions.get(j).getText());
-				
+				utils.pause(500);
+
+				if(j>23){
+					//					utils.scrollToElement(searchResults.navigateRight);
+					utils.scrollInToEndOfPage();
+					utils.scrollInToView(searchResults.srchSuggestions.get(j));
+
+				}
 				if(searchResults.srchSuggestions.get(j).getText().equalsIgnoreCase(requiredPlace)) {
+
+					utils.pause(500);
 					searchResults.cheapDeal.get(j).click();
+
 					placePresent = true;
 					break;
-					
+
 				}
-				
+
+			}
+			utils.pause(500);
+			searchResults.navigateRight.click();
+			utils.scrollInToView(searchResults.srchSuggestions.get(0));
+			if(placePresent==true || i ==pagesCount) {
+				break;
 			}
 
 		}
 
 	}
-	
-	
+
+
 
 }

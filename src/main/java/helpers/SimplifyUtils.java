@@ -714,16 +714,31 @@ public class SimplifyUtils {
 
 	}
 
-	/*
-	 * public void cookie() {
-	 * 
-	 * File file = new File("Cookiefile.data"); // Delete old file if already exists
-	 * file.delete(); file.createNewFile(); FileWriter file = new FileWriter(file);
-	 * BufferedWriter Bwritecookie = new BufferedWriter(file); //Getting the cookie
-	 * information for(Cookie ck : driver.manage().getCookies()) {
-	 * Bwrite.write((ck.getName()+";"+ck.getValue()+";"+ck.getDomain()+";"+ck.
-	 * getPath()+";"+ck.getExpiry()+";"+ck.isSecure())); Bwritecookie.newLine(); }
-	 * Bwritecookie.close(); file.close(); }
-	 */
+	public File cookie() {
+
+		File file = new File("Cookie.data");							
+		try	{	// Delete if any old file exists
+			file.delete();		
+			file.createNewFile();			
+			FileWriter fileWriter = new FileWriter(file);							
+			BufferedWriter bufferwrite = new BufferedWriter(fileWriter);									
+			for(Cookie cook : driver.manage().getCookies()){	
+				String writeup = cook.getName()+";"+cook.getValue()+";"+cook.getDomain()+";"+cook.getPath()+""
+						+ ";"+cook.getExpiry()+";"+cook.isSecure();
+				bufferwrite.write(writeup);	
+				System.out.println(writeup); 
+				bufferwrite.newLine();			
+			}		
+			bufferwrite.flush();
+			bufferwrite.close();
+			fileWriter.close();			
+		}catch(Exception exp)
+		{		
+			exp.printStackTrace();			
+		}
+		
+		return file;
+
+	}
 
 }
