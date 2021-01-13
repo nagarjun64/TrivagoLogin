@@ -72,29 +72,6 @@ public class SearchLocation {
 		search.adultsCnt.clear(); utils.pause(2000);
 		search.adultsCnt.sendKeys(String.valueOf(adultsCnt));
 
-
-
-		/*
-		 * int currentAdultsCnt = Integer.parseInt(search.adultsCnt.getText());
-		 * 
-		 * if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt<adultsCnt)) {
-		 * 
-		 * for(int i=0; i<adultsCnt-currentAdultsCnt;i++) {
-		 * search.adultsCntIncrease.click();
-		 * 
-		 * }
-		 * 
-		 * } else if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt>adultsCnt)) {
-		 * 
-		 * for(int i=0; i<currentAdultsCnt-adultsCnt;i++) {
-		 * search.adultsCntReduce.click();
-		 * 
-		 * }
-		 * 
-		 * 
-		 * }
-		 */
-
 		search.childrenCnt.clear(); utils.pause(2000);
 		search.childrenCnt.sendKeys(String.valueOf(childCnt));
 
@@ -116,28 +93,10 @@ public class SearchLocation {
 
 		utils.pause(1000);
 
-		search.adultsCntReduce.click();
+		utils.pause(1000);
 
-		/*
-		 * int currentAdultsCnt = Integer.parseInt(search.adultsCnt.getText());
-		 * 
-		 * if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt<adultsCnt)) {
-		 * 
-		 * for(int i=0; i<adultsCnt-currentAdultsCnt;i++) {
-		 * search.adultsCntIncrease.click();
-		 * 
-		 * }
-		 * 
-		 * } else if((currentAdultsCnt!=adultsCnt)&&(currentAdultsCnt>adultsCnt)) {
-		 * 
-		 * for(int i=0; i<currentAdultsCnt-adultsCnt;i++) {
-		 * search.adultsCntReduce.click();
-		 * 
-		 * }
-		 * 
-		 * 
-		 * }
-		 */
+		search.adultsCnt.clear(); utils.pause(2000);
+		search.adultsCnt.sendKeys(String.valueOf(adultsCnt));
 
 		search.applyRoomType.click();
 		utils.pause(2000);

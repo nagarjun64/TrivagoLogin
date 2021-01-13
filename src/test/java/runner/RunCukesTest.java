@@ -16,7 +16,7 @@ import io.cucumber.junit.Cucumber;
 		plugin = {"pretty","json:target/cucumber.json","html:target/cucumber-reports", "summary"},
 		//		tags = {"@currentTest,@ReportSanity"},
 //				tags = {"@viewDealsForResort"},
-		tags = {"@TicketCreation"},
+		tags = {"@requirement2"},
 		glue={"helpers","stepDefinitions"},
 //				dryRun = true,
 		monochrome = true //if you want console output from Cucumber in a readable format, you can specify it like this, 
